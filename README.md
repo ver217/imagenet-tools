@@ -19,7 +19,7 @@ run the following command:
 
 ```
 python3 make_tfrecords.py \
-  --raw_data_dir="path/to/imagenet"
+  --raw_data_dir="path/to/imagenet" \
   --local_scratch_dir="path/to/output"
 ```
 
@@ -33,6 +33,18 @@ To run the script setup a virtualenv with the following libraries installed.
 ```
 python3 make_idx.py --tfrecord_root="path/to/tfrecords"
 ```
+
+# Build subset of Imagenet-1K
+
+This can help you build a subset of Imagenet-1K (TFRecord format):
+```
+python3 build_subset.py "path/to/tfrecords" "output_dir" \
+  --train_num_shards=128 \
+  --valid_num_shards=16 \
+  --num_classes=100
+```
+
+Classes are selected randomly. 
 
 # DALI dataloader
 
